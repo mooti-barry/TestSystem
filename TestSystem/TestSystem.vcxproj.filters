@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="function">
+      <UniqueIdentifier>{59530dce-dc2c-4e84-a874-28c00347d859}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="router">
+      <UniqueIdentifier>{72f46428-db3d-4adb-a949-97e2316af022}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{1e173f40-fd45-4a35-a345-019372ebc1b9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Function\function.h">
+      <Filter>function</Filter>
+    </ClInclude>
+    <ClInclude Include="Function\Function_obj.h">
+      <Filter>function</Filter>
+    </ClInclude>
+    <ClInclude Include="util\util.hpp">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="router\BaseRoute.h">
+      <Filter>router</Filter>
+    </ClInclude>
+    <ClInclude Include="router\Algorithm_Route.h">
+      <Filter>router</Filter>
+    </ClInclude>
+    <ClInclude Include="router\Main_Route.h">
+      <Filter>router</Filter>
+    </ClInclude>
+    <ClInclude Include="router\DataStruct_Route.h">
+      <Filter>router</Filter>
+    </ClInclude>
+    <ClInclude Include="StringDef.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Function\function.cpp">
+      <Filter>function</Filter>
+    </ClCompile>
+    <ClCompile Include="Function\Function_obj.cpp">
+      <Filter>function</Filter>
+    </ClCompile>
+    <ClCompile Include="router\BaseRoute.cpp">
+      <Filter>router</Filter>
+    </ClCompile>
+    <ClCompile Include="router\Algorithm_Route.cpp">
+      <Filter>router</Filter>
+    </ClCompile>
+    <ClCompile Include="router\Main_Route.cpp">
+      <Filter>router</Filter>
+    </ClCompile>
+    <ClCompile Include="router\DataStruct_Route.cpp">
+      <Filter>router</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="system_def.h">
+      <Filter>Header Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>
