@@ -167,3 +167,15 @@ static string* Split(const string& ssource, const string dev, int &splitCount)
 	return p;
 
 }
+
+/*
+获取随机数组
+*/
+static void GetRandomArray(int p[], int nCOunt = 10, int nbegin = 0, int nend = 100)
+{
+	srand((unsigned)time(NULL));
+	for (int i = 0; i < nCOunt; i++)
+	{
+		p[i] = rand() % (nend - nbegin) + nbegin;
+	}
+}

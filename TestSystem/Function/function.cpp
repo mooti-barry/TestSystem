@@ -5,9 +5,10 @@
 
 #include "function.h"
 #include "../util/util.hpp"
+#include "../StringDef.hpp"
 void nsp_test_function::Sort_Func_Template(Func pFunc, string sFunStart)
 {
-	OP("输入整形数组,以空格分隔,以回车完成输入");
+	OP("输入整形数组,以空格分隔,以回车完成输入。(输入random n begin end 使用随机数组,数组成员n个，范围从begin~end)");
 
 	string str;
 	getline(cin, str);
@@ -21,10 +22,47 @@ void nsp_test_function::Sort_Func_Template(Func pFunc, string sFunStart)
 	strArray = Split(str, " ", nCount);
 	if (strArray && nCount > 0)
 	{
-		int *pIntArray = new int[nCount];
-		for (int i = 0; i < nCount; i++)
+		int *pIntArray = NULL;
+		
+
+		if (nCount >= 0 && strArray[0] == "random")
 		{
-			pIntArray[i] = atoi(strArray[i].c_str());
+			switch (nCount)
+			{
+			case 1:
+				nCount = 10;
+				pIntArray = new int[10];
+				GetRandomArray(pIntArray);
+				break;
+			case 2:
+				nCount = atoi(strArray[1].c_str());
+				pIntArray = new int[atoi(strArray[1].c_str())];
+				GetRandomArray(pIntArray, atoi(strArray[1].c_str()));
+				break;
+			case 3:
+				nCount = atoi(strArray[1].c_str());
+				pIntArray = new int[atoi(strArray[1].c_str())];
+				GetRandomArray(pIntArray, atoi(strArray[1].c_str()), atoi(strArray[2].c_str()));
+				break;
+			case 4:
+				nCount = atoi(strArray[1].c_str());
+				pIntArray = new int[atoi(strArray[1].c_str())];
+				GetRandomArray(pIntArray, atoi(strArray[1].c_str()), atoi(strArray[2].c_str()), atoi(strArray[3].c_str()));
+				break;
+			}
+			for (int i = 0; i < nCount; i++)
+			{
+				cout << pIntArray[i] << ' ';
+			}
+			OP(" ");
+		}
+		else
+		{
+			pIntArray = new int[nCount];
+			for (int i = 0; i < nCount; i++)
+			{
+				pIntArray[i] = atoi(strArray[i].c_str());
+			}
 		}
 		delete[] strArray;
 		OP(sFunStart.c_str());
@@ -81,8 +119,7 @@ void nsp_test_function::quick_sort(int num[], int l, int r)
 }
 void nsp_test_function::mao_pao(int num[], int len)
 {
-	string str = "思路：从第一个数开始左往右，大数沉淀。再到下一个数，继续从左往右，大数沉淀。依次进行";
-	OP(str.c_str());
+	OP(sys_doc::doc_mao_pao_sort.c_str());
 
 	for (int i = 0; i < len - 1; i++)
 	{
@@ -105,8 +142,7 @@ void nsp_test_function::mao_pao(int num[], int len)
 }
 void nsp_test_function::mao_pao_jiwei(int num[], int len)
 {
-	string str = "思路：先从左往右,大数沉淀。再从右往左,小数上浮。依次进行";
-	OP(str.c_str());
+	OP(sys_doc::doc_mao_pao_jiwei_sort.c_str());
 
 	int l = 0;
 	int r = len - 1;
@@ -133,6 +169,7 @@ void nsp_test_function::mao_pao_jiwei(int num[], int len)
 
 		for (int i = r; i > l; i--)
 		{
+			
 			if (num[i] < num[i - 1])
 			{
 				int temp = num[i];
@@ -151,8 +188,7 @@ void nsp_test_function::mao_pao_jiwei(int num[], int len)
 }
 void nsp_test_function::selection_sort(int num[], int len)
 {
-	string str = "思路：i从0到len-1,j从i+1到len,找出num[j]<num[i],并且num[j]最小的那个与num[i]交换位置";
-	OP(str.c_str());
+	OP(sys_doc::doc_selection_sort.c_str());
 
 	int i = 0,j;
 	int nIndex;
@@ -188,7 +224,7 @@ void nsp_test_function::selection_sort(int num[], int len)
 }
 void nsp_test_function::insertion_sort(int num[], int len)
 {
-	string str = "思路：对于未排序数据(右手抓到的牌)，在已排序序列(左手已经排好序的手牌)中从后向前扫描，找到相应位置并插入。";
+	OP(sys_doc::doc_insertsion_sort.c_str());
 	for (int i = 1; i < len;i++)
 	{
 		int get = num[i];
@@ -204,7 +240,7 @@ void nsp_test_function::insertion_sort(int num[], int len)
 		for (int k = 0; k < len; k++)
 		{
 			std::cout << num[k] << ' ';
-		}
+		} 
 		OP(" ");
 	}
 }
