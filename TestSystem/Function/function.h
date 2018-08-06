@@ -11,7 +11,7 @@ namespace nsp_test_function
 	void do_mao_pao();					//√∞≈›∑®
 	void do_mao_pao_jiwei();			//√∞≈›º¶Œ≤æ∆
 	void do_selection_sort();			//—°‘Ò≈≈–Ú
-	void do_insertion_sort();			//≤Â»Î≈≈–Ú
+	void do_insertion_sort();			//≤Â»Î≈≈–Ú 
 
 
 
@@ -24,11 +24,13 @@ namespace nsp_test_function
 	//////////////////////////////////////////////////////////////////////////
 
 
-	//∏®∫Ø ˝
+	// µœ÷∫Ø ˝
 	void Sort_Func_Template(Func pFunc, std::string sFunStart);
 	void quick_sort(int num[], int l, int r);
 	void mao_pao(int num[], int len);
 	void mao_pao_jiwei(int num[], int len);
 	void selection_sort(int num[],int len);
 	void insertion_sort(int num[], int len);
+	void insertion_dichotomy_sort(int num[], int len);
+	void insertion_shell_sort(int num[], int len);
 }
