@@ -42,11 +42,15 @@ int main()
 			Delay(1500);
 			break;
 		}
-
-		if (str == "-h" || str == "-H")
+		else if (str == "-h" || str == "-H")
 		{
 			OP("Sorry, Building ~");
 			SystemPause();
+			continue;
+		} 
+		else if (str == "time")
+		{
+			ShowTime();
 			continue;
 		}
 			

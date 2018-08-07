@@ -20,6 +20,10 @@ void nsp_test_function::Sort_Func_Template(Func pFunc, string sFunStart)
 	string* strArray = NULL;
 	int nCount = 0;
 	strArray = Split(str, " ", nCount);
+
+	time_t t_first, t_second;
+	t_first = time(NULL);
+
 	if (strArray && nCount > 0)
 	{
 		int *pIntArray = NULL;
@@ -74,6 +78,8 @@ void nsp_test_function::Sort_Func_Template(Func pFunc, string sFunStart)
 		}
 		OP(" ");
 		delete[]pIntArray;
+		t_second = time(NULL);
+		cout << "The during time is:" << difftime(t_second, t_first) << " seconds\n" << endl;
 	}
 	else
 	{
@@ -224,7 +230,7 @@ void nsp_test_function::selection_sort(int num[], int len)
 }
 void nsp_test_function::insertion_sort(int num[], int len)
 {
-	OP(sys_doc::doc_insertsion_sort.c_str());
+	OP(sys_doc::doc_insertion_sort.c_str());
 	for (int i = 1; i < len;i++)
 	{
 		int get = num[i];
@@ -244,6 +250,70 @@ void nsp_test_function::insertion_sort(int num[], int len)
 		OP(" ");
 	}
 }
+void nsp_test_function::insertion_dichotomy_sort(int num[], int len)
+{
+	OP(sys_doc::doc_insertion_dichotomy_sort.c_str());
+	for (int i = 1; i < len;i++)
+	{
+		int get = num[i];
+		int l = 0;
+		int r = i - 1;
+
+		while (l <= r)
+		{
+			int mid = (l + r) / 2;
+			if (get < num[mid])
+				r = mid - 1;
+			else
+				l = mid + 1;
+		}
+		
+		for (int j = i - 1; j >= l;j--)
+		{
+			num[j + 1] = num[j];
+		}
+
+		num[l] = get;
+
+		for (int k = 0; k < len;k++)
+		{
+			cout << num[k] << ' ';
+		}
+		OP(" ");
+	}
+}
+void nsp_test_function::insertion_shell_sort(int num[], int len)
+{
+	OP(sys_doc::doc_insertion_shell_sort.c_str());
+	int h = 0,j,get;
+	while (h <= len)
+	{
+		h = h * 3 + 1;
+	}
+
+	while (h >= 1)
+	{
+		for (int i = h; i < len; i++)
+		{
+			j = i - h;
+			get = num[i];
+			while (j>=0 && get < num[j])
+			{
+				num[j + h] = num[j];
+				j = j - h;
+			}
+			num[j + h] = get;
+		}
+		h = (h - 1) / 3;
+
+		for (int i = 0; i < len;i++)
+		{
+			cout << num[i] << " ";
+		}
+		OP("");
+	}
+}
+
 
 //namespace£º
 void nsp_test_function::do_quick_sort()
@@ -300,7 +370,24 @@ void nsp_test_function::do_selection_sort()
 }
 void nsp_test_function::do_insertion_sort()
 {
-	Sort_Func_Template(&nsp_test_function::insertion_sort, "insertion_sort start");
+	//whichº¬Òå£º 0:Õý³£²åÈëÅÅÐò   1 : ¶þ·Ö²åÈëÅÅÐò 2£ºÏ£¶ûÅÅÐò
+	int which = 2;
+	switch (which)
+	{
+	case 0:
+		Sort_Func_Template(&nsp_test_function::insertion_sort, "insertion_sort start"); 
+		break;
+	case 1:
+		Sort_Func_Template(&nsp_test_function::insertion_dichotomy_sort, "insertion_dichotomy_sort start");
+		break;
+	case 2:
+		Sort_Func_Template(&nsp_test_function::insertion_shell_sort, "insertion_shell_sort start");
+		break;
+	default:
+		Sort_Func_Template(&nsp_test_function::insertion_sort, "insertion_sort start");
+		break;
+	}
+	
 }
 void nsp_test_function::do_KMP()
 {
