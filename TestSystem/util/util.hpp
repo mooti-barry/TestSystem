@@ -3,6 +3,7 @@
 #include <string>
 #include <stdarg.h>
 #include <ctime>
+#include <conio.h>
 #include "../system_def.h"
 using namespace std;
 using namespace app_system;
@@ -99,9 +100,10 @@ static int OP(const char *format, ...)
 
 static void SystemPause()
 {
-	OP("请按回车键继续...");
-	string s;
-	getline(cin, s);
+	OP("请按任意键继续...");
+	//string s;
+	//getline(cin, s);
+	_getch();	//包含头#include <conio.h>
 }
 
 static void  Delay(int  time)

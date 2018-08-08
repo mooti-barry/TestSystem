@@ -13,6 +13,8 @@ namespace nsp_test_function
 	void do_selection_sort();			//选择排序
 	void do_insertion_sort();			//插入排序 
 
+	void do_queen();					//皇后算法
+
 
 
 	//数据结构类
@@ -33,4 +35,5 @@ namespace nsp_test_function
 	void insertion_sort(int num[], int len);
 	void insertion_dichotomy_sort(int num[], int len);
 	void insertion_shell_sort(int num[], int len);
+	void queen(int row, int ncount,int &total,int p[]);
 }

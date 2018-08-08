@@ -313,7 +313,42 @@ void nsp_test_function::insertion_shell_sort(int num[], int len)
 		OP("");
 	}
 }
+void nsp_test_function::queen(int row, int nCount, int& total, int p[])
+{
+	//处于同一对角线判断,主对角线：行的差等于列的差。副对角线：行的差等于列的差的相反数
 
+	if (row == nCount)
+	{
+		total++;
+		for (size_t i = 0; i < nCount; i++)
+		{
+			cout << p[i] << ' ';
+		}
+		OP("");
+	}
+	else
+	{
+		for (int i = 0; i < nCount;i++)
+		{
+			p[row] = i;
+			bool is_ok = true;
+			{
+				for (int j = 0; j < row;j++)
+				{
+					if (p[row] == p[j] || row - j == p[row] - p[j] || row - j == p[j] - p[row])
+					{
+						is_ok = false;
+						break;
+					}
+				}
+			}
+
+			if (is_ok)
+				queen(row + 1, nCount, total, p);
+		}
+	}
+		
+}
 
 //namespace：
 void nsp_test_function::do_quick_sort()
@@ -370,20 +405,26 @@ void nsp_test_function::do_selection_sort()
 }
 void nsp_test_function::do_insertion_sort()
 {
-	//which含义： 0:正常插入排序   1 : 二分插入排序 2：希尔排序
-	int which = 2;
+	OP("选择插入排序算法：0:普通插入排序  1:二分插入排序  2:希尔排序");
+	string s;
+	getline(cin, s);
+	int which = atoi(s.c_str());
 	switch (which)
 	{
 	case 0:
+		OP("使用普通插入排序");
 		Sort_Func_Template(&nsp_test_function::insertion_sort, "insertion_sort start"); 
 		break;
 	case 1:
+		OP("使用二分插入排序");
 		Sort_Func_Template(&nsp_test_function::insertion_dichotomy_sort, "insertion_dichotomy_sort start");
 		break;
 	case 2:
+		OP("使用希尔排序");
 		Sort_Func_Template(&nsp_test_function::insertion_shell_sort, "insertion_shell_sort start");
 		break;
 	default:
+		OP("使用普通插入排序");
 		Sort_Func_Template(&nsp_test_function::insertion_sort, "insertion_sort start");
 		break;
 	}
@@ -409,6 +450,28 @@ void nsp_test_function::do_KMP()
 
 	SystemPause();
 }
+void nsp_test_function::do_queen()
+{
+	OP(sys_doc::doc_queen_func.c_str());
+	OP("输入皇后的个数n(棋盘大小n*n):");
+	string s;
+	getline(cin, s);
+	int num = atoi(s.c_str());
+	if (num == 0)
+	{
+		OP("输入有误");
+		return;
+	}
+
+	int total = 0;
+	int *p = new int[num];
+	memset(p, -1, sizeof(int) * num);
+	OP("do_queen start:");
+	queen(0, num, total,p);
+	OP("总共有%d种摆法",total);
+	SystemPause();
+}
+
 void nsp_test_function::show_PtrArray()
 {
 	OP("演示指针数组例子");

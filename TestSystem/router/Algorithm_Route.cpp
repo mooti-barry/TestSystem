@@ -79,4 +79,9 @@ void CAlgorithm_Route::CreateRouter()
 	fun_described = "KMP算法。文本串S,和一个模式串P,现在要查找P在S中的第一个位置。";
 	obj.Create(&nsp_test_function::do_KMP, fun_name, fun_described);
 	_Router[nIndex++] = obj;
+
+	fun_name = "do_queen";
+	fun_described = "皇后算法。";
+	obj.Create(&nsp_test_function::do_queen, fun_name, fun_described);
+	_Router[nIndex++] = obj;
 }
