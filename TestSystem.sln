@@ -14,7 +14,6 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F6C9BDC5-ADBD-47BB-8DD2-6187F26B9282}.Debug|Win32.ActiveCfg = Debug|Win32
-		{F6C9BDC5-ADBD-47BB-8DD2-6187F26B9282}.Debug|Win32.Build.0 = Debug|Win32
 		{F6C9BDC5-ADBD-47BB-8DD2-6187F26B9282}.Release|Win32.ActiveCfg = Release|Win32
 		{F6C9BDC5-ADBD-47BB-8DD2-6187F26B9282}.Release|Win32.Build.0 = Release|Win32
 		{DAB8B99C-7AD5-49FD-9F85-29285479AD14}.Debug|Win32.ActiveCfg = Debug|Win32
